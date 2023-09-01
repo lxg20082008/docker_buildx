@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/sh -l
 export DOCKER_CLI_EXPERIMENTAL=enabled
 TAGS=
 for TAG in $(echo "$3" | tr ',' ' ')
