@@ -1,30 +1,30 @@
-#!/bin/sh -l
+#!/bin/bash
 export DOCKER_CLI_EXPERIMENTAL=enabled
-TAGS=
+TAGS=""
 for TAG in $(echo "$3" | tr ',' ' ')
 do
     TAGS="$TAGS --tag $2:$TAG"
 done
 
-PUSH=
-if [ $5 = true ];
+PUSH=""
+if [ "$5" = true ];
 then
     PUSH="--push"
 fi
 
-BUILD_ARGS=
+BUILD_ARGS=""
 for ARG in $(echo "$6" | tr ',' ' ')
 do
     BUILD_ARGS="$BUILD_ARGS --build-arg $ARG"
 done
 
-LOAD=
-if [ $7 = true ];
+LOAD=""
+if [ "$7" = true ];
 then
     LOAD="--load"
 fi
 
-TARGET=
+TARGET=""
 if [ ! -z "$9" ];
 then
    TARGET="--target $9"
